@@ -757,17 +757,17 @@ Connection ~ 9175 1375
 Connection ~ 9575 1375
 Connection ~ 9975 1375
 Connection ~ 10375 1375
-Text GLabel 6025 5625 2    60   Output ~ 0
+Text GLabel 6025 5925 2    60   Output ~ 0
 ROW1A
-Text GLabel 6025 5725 2    60   Output ~ 0
+Text GLabel 6025 6025 2    60   Output ~ 0
 ROW2A
 Text GLabel 6025 5825 2    60   Output ~ 0
 ROW3A
-Text GLabel 6025 5925 2    60   Output ~ 0
+Text GLabel 6025 5725 2    60   Output ~ 0
 ROW4A
-Text GLabel 6025 6025 2    60   Output ~ 0
-ROW5A
 Text GLabel 6025 6125 2    60   Output ~ 0
+ROW5A
+Text GLabel 6025 5625 2    60   Output ~ 0
 ROW6A
 Wire Wire Line
 	6025 5625 6025 5625
@@ -781,31 +781,31 @@ Wire Wire Line
 	6025 6025 6025 6025
 Wire Wire Line
 	6025 6125 6025 6125
-Text GLabel 6025 5425 2    60   Output ~ 0
+Text GLabel 6025 4825 2    60   Output ~ 0
 COL8A
 Wire Wire Line
 	6025 5425 6025 5425
-Text GLabel 6025 5325 2    60   Output ~ 0
+Text GLabel 6025 5225 2    60   Output ~ 0
 COL7A
 Wire Wire Line
 	6025 5325 6025 5325
-Text GLabel 6025 5225 2    60   Output ~ 0
+Text GLabel 6025 5425 2    60   Output ~ 0
 COL6A
 Wire Wire Line
 	6025 5225 6025 5225
-Text GLabel 6025 5125 2    60   Output ~ 0
+Text GLabel 6025 5025 2    60   Output ~ 0
 COL5A
 Wire Wire Line
 	6025 5125 6025 5125
-Text GLabel 6025 5025 2    60   Output ~ 0
+Text GLabel 6025 4925 2    60   Output ~ 0
 COL4A
 Wire Wire Line
 	6025 5025 6025 5025
-Text GLabel 6025 4925 2    60   Output ~ 0
+Text GLabel 6025 5325 2    60   Output ~ 0
 COL3A
 Wire Wire Line
 	6025 4925 6025 4925
-Text GLabel 6025 4825 2    60   Output ~ 0
+Text GLabel 6025 5125 2    60   Output ~ 0
 COL2A
 Wire Wire Line
 	6025 4825 6025 4825
@@ -1811,15 +1811,15 @@ F 3 "" H 5525 5525 60  0000 C CNN
 	1    5625 5525
 	1    0    0    -1  
 $EndComp
-Text GLabel 6025 2450 2    60   Output ~ 0
+Text GLabel 6025 2750 2    60   Output ~ 0
 ROW1B
-Text GLabel 6025 2550 2    60   Output ~ 0
+Text GLabel 6025 2850 2    60   Output ~ 0
 ROW2B
 Text GLabel 6025 2650 2    60   Output ~ 0
 ROW3B
-Text GLabel 6025 2750 2    60   Output ~ 0
+Text GLabel 6025 2550 2    60   Output ~ 0
 ROW4B
-Text GLabel 6025 2850 2    60   Output ~ 0
+Text GLabel 6025 2450 2    60   Output ~ 0
 ROW5B
 Wire Wire Line
 	6025 2450 6025 2450
@@ -1833,31 +1833,31 @@ Wire Wire Line
 	6025 2850 6025 2850
 Wire Wire Line
 	6025 2950 6025 2950
-Text GLabel 6025 2250 2    60   Output ~ 0
+Text GLabel 6025 1650 2    60   Output ~ 0
 COL8B
 Wire Wire Line
 	6025 2250 6025 2250
-Text GLabel 6025 2150 2    60   Output ~ 0
+Text GLabel 6025 2050 2    60   Output ~ 0
 COL7B
 Wire Wire Line
 	6025 2150 6025 2150
-Text GLabel 6025 2050 2    60   Output ~ 0
+Text GLabel 6025 2250 2    60   Output ~ 0
 COL6B
 Wire Wire Line
 	6025 2050 6025 2050
-Text GLabel 6025 1950 2    60   Output ~ 0
+Text GLabel 6025 1850 2    60   Output ~ 0
 COL5B
 Wire Wire Line
 	6025 1950 6025 1950
-Text GLabel 6025 1850 2    60   Output ~ 0
+Text GLabel 6025 1750 2    60   Output ~ 0
 COL4B
 Wire Wire Line
 	6025 1850 6025 1850
-Text GLabel 6025 1750 2    60   Output ~ 0
+Text GLabel 6025 2150 2    60   Output ~ 0
 COL3B
 Wire Wire Line
 	6025 1750 6025 1750
-Text GLabel 6025 1650 2    60   Output ~ 0
+Text GLabel 6025 1950 2    60   Output ~ 0
 COL2B
 Wire Wire Line
 	6025 1650 6025 1650
