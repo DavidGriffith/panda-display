@@ -2,8 +2,8 @@
 
   (general
     (links 132)
-    (no_connects 1)
-    (area 43.742352 80.79 217.674286 132.222038)
+    (no_connects 0)
+    (area 55.804999 86.284999 200.735001 124.535001)
     (thickness 1.6)
     (drawings 6)
     (tracks 373)
@@ -19,14 +19,14 @@
   )
 
   (layers
-    (0 F.Cu signal)
-    (31 B.Cu signal)
+    (0 F.Cu signal hide)
+    (31 B.Cu signal hide)
     (32 B.Adhes user)
     (33 F.Adhes user)
     (34 B.Paste user)
     (35 F.Paste user)
-    (36 B.SilkS user hide)
-    (37 F.SilkS user hide)
+    (36 B.SilkS user)
+    (37 F.SilkS user)
     (38 B.Mask user)
     (39 F.Mask user)
     (40 Dwgs.User user)
@@ -72,7 +72,7 @@
     (pad_to_mask_clearance 0.2)
     (aux_axis_origin 0 0)
     (grid_origin 58.42 121.92)
-    (visible_elements FFFF377F)
+    (visible_elements FFFFF77F)
     (pcbplotparams
       (layerselection 0x00030_80000001)
       (usegerberextensions false)
@@ -301,6 +301,11 @@
       (net 15 GND))
     (pad 2 thru_hole circle (at 2.5 0 270) (size 1.2 1.2) (drill 0.7) (layers *.Cu *.Mask F.SilkS)
       (net 16 "Net-(C4-Pad2)"))
+    (model Capacitors_ThroughHole.3dshapes/C_Disc_D3_P2.5.wrl
+      (at (xyz 0.05 0 0))
+      (scale (xyz 1 1 1))
+      (rotate (xyz 0 0 0))
+    )
   )
 
   (module Diodes_ThroughHole:Diode_DO-35_SOD27_Horizontal_RM10 (layer F.Cu) (tedit 564D1E3C) (tstamp 564CF2DB)
@@ -396,10 +401,10 @@
       (net 10 ROW1))
     (pad 20 thru_hole oval (at 7.62 0 90) (size 1.6 1.6) (drill 0.8) (layers *.Cu *.Mask F.SilkS)
       (net 10 ROW1))
-    (model Housings_DIP.3dshapes/DIP-20_W7.62mm.wrl
-      (at (xyz 0 0 0))
+    (model /home/dave/proj/boards/kicad/my3d/displayled/barraled_red.wrl
+      (at (xyz 0.15 -0.45 0))
       (scale (xyz 1 1 1))
-      (rotate (xyz 0 0 0))
+      (rotate (xyz 0 0 90))
     )
   )
 
@@ -465,10 +470,10 @@
       (net 9 ROW2))
     (pad 20 thru_hole oval (at 7.62 0 90) (size 1.6 1.6) (drill 0.8) (layers *.Cu *.Mask F.SilkS)
       (net 9 ROW2))
-    (model Housings_DIP.3dshapes/DIP-20_W7.62mm.wrl
-      (at (xyz 0 0 0))
+    (model /home/dave/proj/boards/kicad/my3d/displayled/barraled_red.wrl
+      (at (xyz 0.15 -0.45 0))
       (scale (xyz 1 1 1))
-      (rotate (xyz 0 0 0))
+      (rotate (xyz 0 0 90))
     )
   )
 
@@ -534,10 +539,10 @@
       (net 11 ROW3))
     (pad 20 thru_hole oval (at 7.62 0 90) (size 1.6 1.6) (drill 0.8) (layers *.Cu *.Mask F.SilkS)
       (net 11 ROW3))
-    (model Housings_DIP.3dshapes/DIP-20_W7.62mm.wrl
-      (at (xyz 0 0 0))
+    (model /home/dave/proj/boards/kicad/my3d/displayled/barraled_red.wrl
+      (at (xyz 0.15 -0.45 0))
       (scale (xyz 1 1 1))
-      (rotate (xyz 0 0 0))
+      (rotate (xyz 0 0 90))
     )
   )
 
@@ -603,10 +608,10 @@
       (net 12 ROW4))
     (pad 20 thru_hole oval (at 7.62 0 90) (size 1.6 1.6) (drill 0.8) (layers *.Cu *.Mask F.SilkS)
       (net 12 ROW4))
-    (model Housings_DIP.3dshapes/DIP-20_W7.62mm.wrl
-      (at (xyz 0 0 0))
+    (model /home/dave/proj/boards/kicad/my3d/displayled/barraled_red.wrl
+      (at (xyz 0.15 -0.45 0))
       (scale (xyz 1 1 1))
-      (rotate (xyz 0 0 0))
+      (rotate (xyz 0 0 90))
     )
   )
 
@@ -687,6 +692,11 @@
       (net 14 VCC))
     (pad 2 thru_hole circle (at 2.5 0 90) (size 1.2 1.2) (drill 0.7) (layers *.Cu *.Mask F.SilkS)
       (net 15 GND))
+    (model Capacitors_ThroughHole.3dshapes/C_Disc_D3_P2.5.wrl
+      (at (xyz 0.05 0 0))
+      (scale (xyz 1 1 1))
+      (rotate (xyz 0 0 0))
+    )
   )
 
   (module Capacitors_ThroughHole:C_Rect_L4_W2.5_P2.5 (layer F.Cu) (tedit 564D3A7A) (tstamp 564CF2C3)
@@ -710,6 +720,11 @@
       (net 14 VCC))
     (pad 2 thru_hole circle (at 2.5 0 90) (size 1.2 1.2) (drill 0.7) (layers *.Cu *.Mask F.SilkS)
       (net 15 GND))
+    (model Capacitors_ThroughHole.3dshapes/C_Disc_D3_P2.5.wrl
+      (at (xyz 0.05 0 0))
+      (scale (xyz 1 1 1))
+      (rotate (xyz 0 0 0))
+    )
   )
 
   (module Capacitors_ThroughHole:C_Rect_L4_W2.5_P2.5 (layer F.Cu) (tedit 564D38A6) (tstamp 564CF2CF)
@@ -733,6 +748,11 @@
       (net 15 GND))
     (pad 2 thru_hole circle (at 2.5 0 270) (size 1.2 1.2) (drill 0.7) (layers *.Cu *.Mask F.SilkS)
       (net 17 "Net-(C5-Pad2)"))
+    (model Capacitors_ThroughHole.3dshapes/C_Disc_D3_P2.5.wrl
+      (at (xyz 0.05 0 0))
+      (scale (xyz 1 1 1))
+      (rotate (xyz 0 0 0))
+    )
   )
 
   (module Diodes_ThroughHole:Diode_DO-35_SOD27_Horizontal_RM10 (layer F.Cu) (tedit 564D1E38) (tstamp 564CF2D5)
@@ -991,9 +1011,9 @@
       (net 45 /D-))
     (pad 2 thru_hole circle (at 7.62 0) (size 1.397 1.397) (drill 0.8128) (layers *.Cu *.SilkS *.Mask)
       (net 14 VCC) (clearance 0.25))
-    (model Resistors_ThroughHole/Resistor_Horizontal_RM10mm.wrl
-      (at (xyz 0 0 0))
-      (scale (xyz 0.4 0.4 0.4))
+    (model Resistors_ThroughHole.3dshapes/Resistor_Horizontal_RM10mm.wrl
+      (at (xyz 0.15 0 -0.01))
+      (scale (xyz 0.3 0.3 0.3))
       (rotate (xyz 0 0 0))
     )
   )
@@ -1023,9 +1043,9 @@
       (net 45 /D-))
     (pad 2 thru_hole circle (at 7.62 0) (size 1.397 1.397) (drill 0.8128) (layers *.Cu *.SilkS *.Mask)
       (net 15 GND) (clearance 0.25))
-    (model Resistors_ThroughHole/Resistor_Horizontal_RM10mm.wrl
-      (at (xyz 0 0 0))
-      (scale (xyz 0.4 0.4 0.4))
+    (model Resistors_ThroughHole.3dshapes/Resistor_Horizontal_RM10mm.wrl
+      (at (xyz 0.15 0 -0.01))
+      (scale (xyz 0.3 0.3 0.3))
       (rotate (xyz 0 0 0))
     )
   )
@@ -1055,9 +1075,9 @@
       (net 45 /D-))
     (pad 2 thru_hole circle (at 7.62 0 180) (size 1.397 1.397) (drill 0.8128) (layers *.Cu *.SilkS *.Mask)
       (net 23 "Net-(R3-Pad2)") (clearance 0.25))
-    (model Resistors_ThroughHole/Resistor_Horizontal_RM10mm.wrl
-      (at (xyz 0 0 0))
-      (scale (xyz 0.4 0.4 0.4))
+    (model Resistors_ThroughHole.3dshapes/Resistor_Horizontal_RM10mm.wrl
+      (at (xyz 0.15 0 -0.01))
+      (scale (xyz 0.3 0.3 0.3))
       (rotate (xyz 0 0 0))
     )
   )
@@ -1087,9 +1107,9 @@
       (net 46 /D+))
     (pad 2 thru_hole circle (at 7.62 0 180) (size 1.397 1.397) (drill 0.8128) (layers *.Cu *.SilkS *.Mask)
       (net 24 "Net-(R4-Pad2)") (clearance 0.25))
-    (model Resistors_ThroughHole/Resistor_Horizontal_RM10mm.wrl
-      (at (xyz 0 0 0))
-      (scale (xyz 0.4 0.4 0.4))
+    (model Resistors_ThroughHole.3dshapes/Resistor_Horizontal_RM10mm.wrl
+      (at (xyz 0.15 0 -0.01))
+      (scale (xyz 0.3 0.3 0.3))
       (rotate (xyz 0 0 0))
     )
   )
@@ -1119,9 +1139,9 @@
       (net 25 "Net-(R5-Pad1)"))
     (pad 2 thru_hole circle (at 7.62 0 90) (size 1.397 1.397) (drill 0.8128) (layers *.Cu *.SilkS *.Mask)
       (net 14 VCC) (clearance 0.25))
-    (model Resistors_ThroughHole/Resistor_Horizontal_RM10mm.wrl
-      (at (xyz 0 0 0))
-      (scale (xyz 0.4 0.4 0.4))
+    (model Resistors_ThroughHole.3dshapes/Resistor_Horizontal_RM10mm.wrl
+      (at (xyz 0.15 0 0))
+      (scale (xyz 0.3 0.3 0.3))
       (rotate (xyz 0 0 0))
     )
   )
@@ -1151,9 +1171,9 @@
       (net 42 /LOAD))
     (pad 2 thru_hole circle (at 7.62 0 270) (size 1.397 1.397) (drill 0.8128) (layers *.Cu *.SilkS *.Mask)
       (net 15 GND) (clearance 0.25))
-    (model Resistors_ThroughHole/Resistor_Horizontal_RM10mm.wrl
-      (at (xyz 0 0 0))
-      (scale (xyz 0.4 0.4 0.4))
+    (model Resistors_ThroughHole.3dshapes/Resistor_Horizontal_RM10mm.wrl
+      (at (xyz 0.15 0 0))
+      (scale (xyz 0.3 0.3 0.3))
       (rotate (xyz 0 0 0))
     )
   )
@@ -1365,6 +1385,11 @@
       (net 16 "Net-(C4-Pad2)"))
     (pad 2 thru_hole circle (at 2.44094 0) (size 1.50114 1.50114) (drill 0.8001) (layers *.Cu *.Mask F.SilkS)
       (net 17 "Net-(C5-Pad2)"))
+    (model Crystals.3dshapes/HC-49V.wrl
+      (at (xyz 0 0 0))
+      (scale (xyz 1 1 0.2))
+      (rotate (xyz 0 0 0))
+    )
   )
 
   (gr_line (start 200.66 86.36) (end 200.66 124.46) (layer Edge.Cuts) (width 0.15))
