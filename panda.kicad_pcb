@@ -1,7 +1,7 @@
-(kicad_pcb (version 4) (host pcbnew "(2015-11-24 BZR 6329, Git e511afd)-product")
+(kicad_pcb (version 4) (host pcbnew "(2015-12-04 BZR 6347, Git 4c88040)-product")
 
   (general
-    (links 0)
+    (links 132)
     (no_connects 0)
     (area 55.804999 86.284999 200.735001 124.535001)
     (thickness 1.6)
@@ -523,10 +523,10 @@
       (net 10 ROW1))
     (pad 24 thru_hole oval (at 7.62 0 270) (size 1.6 1.6) (drill 0.8) (layers *.Cu *.Mask B.SilkS)
       (net 41 "Net-(U2-Pad24)"))
-    (model Housings_DIP.3dshapes/DIP-24_W7.62mm.wrl
-      (at (xyz 0 0 0))
+    (model /home/dave/proj/boards/kicad/my3d/walter/pth_circuits/dil_24-300_socket.wrl
+      (at (xyz 0.15 -0.55 0))
       (scale (xyz 1 1 1))
-      (rotate (xyz 0 0 0))
+      (rotate (xyz 0 0 90))
     )
   )
 
@@ -1250,10 +1250,10 @@
       (net 37 "Net-(U1-Pad27)"))
     (pad 28 thru_hole oval (at 7.62 0 270) (size 1.6 1.6) (drill 0.8) (layers *.Cu *.Mask B.SilkS)
       (net 38 "Net-(U1-Pad28)"))
-    (model Housings_DIP.3dshapes/DIP-28_W7.62mm.wrl
-      (at (xyz 0 0 0))
+    (model /home/dave/proj/boards/kicad/my3d/walter/pth_circuits/dil_28-300_socket.wrl
+      (at (xyz 0.15 -0.55 0))
       (scale (xyz 1 1 1))
-      (rotate (xyz 0 0 0))
+      (rotate (xyz 0 0 90))
     )
   )
 
