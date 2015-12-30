@@ -129,7 +129,6 @@ usbRequest_t    *rq = (void *)data;
 int main(void)
 {
     uchar   i;
-    uint8_t ledmatrix = 0;
 
     wdt_enable(WDTO_1S);
     /* If you don't use the watchdog, replace the call above with a wdt_disable().
@@ -155,7 +154,6 @@ int main(void)
 
     DBG1(0x01, 0, 0);       /* debug output: main loop starts */
     for(;;){                /* main event loop */
-	int8_t led = 0;
         DBG1(0x02, 0, 0);   /* debug output: main loop iterates */
         wdt_reset();
         usbPoll();

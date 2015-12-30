@@ -10,7 +10,9 @@ DEVICE  = atmega328p
 F_CPU   = 20000000	# in Hz
 FUSE_L  = 0xFF
 FUSE_H  = 0xD9
-AVRDUDE = avrdude -c usbtiny -p $(DEVICE) # edit this line for your programmer
+ISP	= usbtiny	# edit this line for your programmer
+
+AVRDUDE = avrdude -c $(ISP) -p $(DEVICE)
 
 CFLAGS  = -Iusbdrv -Iledmatrix7219d88 -I. -DDEBUG_LEVEL=0
 OBJECTS = usbdrv/usbdrv.o usbdrv/usbdrvasm.o ledmatrix7219d88/ledmatrix7219d88.o max7219/max7219.o main.o
@@ -106,6 +108,10 @@ help:
 	@echo "make flash ..... to flash the firmware (use this on metaboard)"
 	@echo "make clean ..... to delete objects and hex file"
 
+
+ptest:	ptest.c
+	gcc -o ptest ptest.c -lusb-1.0 -Wall
+
 hex: main.hex
 
 program: flash fuse
@@ -125,6 +131,7 @@ clean:
 	rm -f main.hex main.lst main.obj main.cof main.list main.map main.eep.hex main.elf *.o usbdrv/*.o main.s usbdrv/oddebug.s usbdrv/usbdrv.s
 	rm -f max7219/*lst max7219/*o
 	rm -f ledmatrix7219d88/*lst ledmatrix7219d88/*o
+	rm -f ptest
 
 # Generic rule for compiling C files:
 .c.o:
