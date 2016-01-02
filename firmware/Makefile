@@ -110,7 +110,7 @@ help:
 
 
 ptest:	ptest.c
-	gcc -o ptest ptest.c -lusb-1.0 -Wall
+	gcc -o ptest ptest.c -lusb-1.0 -Wall -g
 
 hex: main.hex
 

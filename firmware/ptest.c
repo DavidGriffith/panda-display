@@ -10,12 +10,6 @@
 #define BUFFSIZE	8
 #define STRINGBUF	256
 
-static void usage(char *myname)
-{
-	printf("usage:\n");
-	printf(" %s write <list-of-up-to-eight-bytes>\n", myname);
-}
-
 static int  hexread(unsigned char *buffer, char *string, int buflen)
 {
 	char    *s;
@@ -35,6 +29,9 @@ static libusb_device_handle *get_panda_handle(libusb_device **devs)
 	int i = 0;
 	int r;
 
+	int found = 0;
+	int openable = 0;
+
 	unsigned char prod[STRINGBUF];
 	char devname[USB_CFG_DEVICE_NAME_LEN] = {USB_CFG_DEVICE_NAME};
 
@@ -48,22 +45,46 @@ static libusb_device_handle *get_panda_handle(libusb_device **devs)
 	while ((dev = devs[i++]) != NULL) {
 		struct libusb_device_descriptor desc;
 		libusb_get_device_descriptor(dev, &desc); /* this always succeeds */
-
-		handle = libusb_open_device_with_vid_pid(0, desc.idVendor, desc.idProduct);
-		if (handle == NULL) {
-			continue;
+		// Do the VID and PID match?
+		if (desc.idVendor == vid && desc.idProduct == pid) {
+			found = 1;
+			r = libusb_open(dev, &handle);
+			// If we can't open it, keep trying.
+			// There may be a device with the same pid and vid but not a Panda Display
+			if (r < 0) {
+				continue;
+			}
+			openable = 1;
+			r = libusb_get_string_descriptor_ascii(handle, desc.iProduct, prod, STRINGBUF);
+			if (r < 0) {
+				libusb_close(handle);
+				printf("ERROR: %s\n", libusb_strerror(r));
+				return NULL;
+			}
+			// Here we have something that matches the free
+			// VID and PID offered by Objective Development.
+			// Now we need to Check device name to see if it
+			// really is a Panda Display.
+			if ((0 == strncmp((char *)prod, devname, USB_CFG_DEVICE_NAME_LEN)) &&
+				(desc.idVendor == vid) &&
+				(desc.idProduct == pid)) {
+				return handle;
+			}
+			libusb_close(handle);
 		}
-
-		libusb_get_string_descriptor_ascii(handle, desc.iProduct, prod, STRINGBUF);
-
-		if ((0 == strncmp((char *)prod, devname, USB_CFG_DEVICE_NAME_LEN)) &&
-			(desc.idVendor == vid) &&
-			(desc.idProduct == pid)) {
-			return handle;
-		}
-
-		libusb_close(handle);
 	}
+
+	if (found) {
+		if (openable)
+			printf("ERROR: Found USB device matching 16c0:05df, but it isn't a Panda Display\n");
+		else {
+			printf("ERROR: Found something that might be a Panda Display, but couldn't open it.\n");
+			printf("       %s\n", libusb_strerror(r));
+		}
+	} else {
+		printf("ERROR: Didn't find anything that could be a Panda Display\n");
+	}
+
 	return NULL;
 }
 
@@ -97,14 +118,12 @@ int main(int argc, char *argv[])
 		exit(1);
 	}
 	dev_handle = get_panda_handle(devs);
-
 	if(dev_handle == NULL) {
-		printf("Unable to find Panda Display.\n");
-		printf("Either it's not connected or you don't have permission to address it.\n");
+		printf("Unable to access Panda Display.\n");
 		exit(1);
 	}
 
-	printf("Found the Panda Display.\n");
+	printf("Accessed the Panda Display.\n");
 
 	if(libusb_kernel_driver_active(dev_handle, 0) == 1) {
 		printf("Kernel Driver Active\n");
