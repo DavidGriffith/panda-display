@@ -23,7 +23,7 @@ http://www.sparetimegizmos.com/Hardware/Panda.htm
 
 |Semiconductors| |
 |:--------------|---|
-|U1|		ATmega328p microcontroller -- 28-pin narrow DIP|
+|U1|		ATmega8 microcontroller -- 28-pin narrow DIP|
 |U2|		Maxim MAX7219 matrix digit display driver -- 24-pin narrow DIP|
 |D1,D2|		1N747 3.6V zener diodes|
 |BAR1-BAR4|	10 segment LED bar display -- Lite-On LTA-1000HR|
@@ -31,7 +31,7 @@ http://www.sparetimegizmos.com/Hardware/Panda.htm
 
 |Crystals| |
 |:--------|---|
-|Y1|		16MHz to 20MHz quartz crystal -- HC49/US low profile|
+|Y1|		16MHz quartz crystal -- HC49/US low profile|
 
 |Resistors| |
 |:---------|---|

@@ -6,8 +6,8 @@
 # Copyright: (c) 2008 by OBJECTIVE DEVELOPMENT Software GmbH
 # License: GNU GPL v2 (see License.txt), GNU GPL v3 or proprietary (CommercialLicense.txt)
 
-DEVICE  = atmega328p
-F_CPU   = 20000000	# in Hz
+DEVICE  = atmega8
+F_CPU   = 16000000	# in Hz
 FUSE_L  = 0xFF
 FUSE_H  = 0xD9
 ISP	= usbtiny	# edit this line for your programmer

@@ -1,8 +1,8 @@
 (export (version D)
   (design
     (source /home/dave/proj/boards/panda-usb/panda.sch)
-    (date "Sat 26 Dec 2015 12:52:14 AM PST")
-    (tool "Eeschema (2015-12-12 BZR 6370, Git 7cbf8a0)-product")
+    (date "Sun 24 Jan 2016 05:49:32 PM PST")
+    (tool "Eeschema (2016-01-18 BZR 6495, Git cf9a9a0)-product")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
         (title "Panda Display USB")
@@ -16,7 +16,7 @@
         (comment (number 4) (value "")))))
   (components
     (comp (ref U1)
-      (value ATMEGA328-P)
+      (value ATMEGA8)
       (footprint Housings_DIP:DIP-28_W7.62mm)
       (libsource (lib atmel) (part ATMEGA328-P))
       (sheetpath (names /) (tstamps /))
@@ -394,16 +394,16 @@
         (pin (num 1) (name K) (type passive))
         (pin (num 2) (name A) (type passive)))))
   (libraries
+    (library (logical device)
+      (uri /usr/local/share/kicad/library/device.lib))
     (library (logical display)
       (uri /usr/local/share/kicad/library/display.lib))
     (library (logical atmel)
       (uri /usr/local/share/kicad/library/atmel.lib))
-    (library (logical device)
-      (uri /usr/local/share/kicad/library/device.lib))
-    (library (logical conn)
-      (uri /usr/local/share/kicad/library/conn.lib))
     (library (logical w_logic)
-      (uri /home/dave/proj/boards/kicad/mystuff/w_logic.lib)))
+      (uri /home/dave/proj/boards/kicad/mystuff/w_logic.lib))
+    (library (logical conn)
+      (uri /usr/local/share/kicad/library/conn.lib)))
   (nets
     (net (code 1) (name COL3)
       (node (ref BAR4) (pin 5))
