@@ -1,9 +1,9 @@
-(kicad_pcb (version 4) (host pcbnew "(2016-01-18 BZR 6495, Git cf9a9a0)-product")
+(kicad_pcb (version 4) (host pcbnew "(2016-02-01 BZR 6529, Git 1e371a5)-product")
 
   (general
-    (links 0)
+    (links 130)
     (no_connects 0)
-    (area 43.742352 80.79 217.674286 132.222038)
+    (area 55.804999 86.284999 200.735001 124.535001)
     (thickness 1.6)
     (drawings 27)
     (tracks 374)
@@ -228,8 +228,8 @@
     (pad 1 thru_hole rect (at 0.00052 -0.00254) (size 1.69926 1.69926) (drill 0.70104) (layers *.Cu *.Mask F.SilkS)
       (net 44 /D+))
     (model Diodes_ThroughHole.3dshapes/Diode_DO-35_SOD27_Horizontal_RM10.wrl
-      (at (xyz 0.2 0 0))
-      (scale (xyz 0.4 0.4 0.4))
+      (at (xyz 0.15 0 0))
+      (scale (xyz 0.3 0.3 0.3))
       (rotate (xyz 0 0 180))
     )
   )
@@ -258,8 +258,8 @@
     (pad 1 thru_hole rect (at 0.00052 -0.00254) (size 1.69926 1.69926) (drill 0.70104) (layers *.Cu *.Mask F.SilkS)
       (net 43 /D-))
     (model Diodes_ThroughHole.3dshapes/Diode_DO-35_SOD27_Horizontal_RM10.wrl
-      (at (xyz 0.2 0 0))
-      (scale (xyz 0.4 0.4 0.4))
+      (at (xyz 0.15 0 0))
+      (scale (xyz 0.3 0.3 0.3))
       (rotate (xyz 0 0 180))
     )
   )
