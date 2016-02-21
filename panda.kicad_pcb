@@ -3,7 +3,7 @@
   (general
     (links 130)
     (no_connects 0)
-    (area 55.804999 86.284999 200.735001 124.535001)
+    (area 43.742352 80.79 217.674286 132.222038)
     (thickness 1.6)
     (drawings 27)
     (tracks 374)
@@ -369,7 +369,7 @@
   )
 
   (module Symbols:Symbol_OSHW-Logo_CopperTop (layer B.Cu) (tedit 566291BB) (tstamp 5662949F)
-    (at 181.61 96.52 180)
+    (at 181.61 98.425 180)
     (descr "Symbol, OSHW-Logo, Copper Top,")
     (tags "Symbol, OSHW-Logo, Copper Top,")
     (fp_text reference REF** (at 0.09906 4.38912 180) (layer B.SilkS) hide
@@ -1196,7 +1196,7 @@
   )
 
   (module Symbols:Symbol_OSHW-Logo_CopperTop (layer F.Cu) (tedit 566291BB) (tstamp 56629492)
-    (at 181.61 96.52)
+    (at 181.61 98.425)
     (descr "Symbol, OSHW-Logo, Copper Top,")
     (tags "Symbol, OSHW-Logo, Copper Top,")
     (fp_text reference REF** (at 0.09906 -4.38912) (layer F.SilkS) hide
@@ -1285,7 +1285,7 @@
   )
 
   (module Symbols:Symbol_OSHW-Logo_SilkScreen (layer F.Cu) (tedit 566291D4) (tstamp 56629496)
-    (at 181.61 96.52)
+    (at 181.61 98.425)
     (descr "Symbol, OSHW-Logo, Silk Screen,")
     (tags "Symbol, OSHW-Logo, Silk Screen,")
     (fp_text reference REF** (at 0.09906 -4.38912) (layer F.SilkS) hide
@@ -1374,7 +1374,7 @@
   )
 
   (module Symbols:Symbol_OSHW-Logo_SilkScreen (layer B.Cu) (tedit 56629258) (tstamp 5662959C)
-    (at 181.61 96.52 180)
+    (at 181.61 98.425 180)
     (descr "Symbol, OSHW-Logo, Silk Screen,")
     (tags "Symbol, OSHW-Logo, Silk Screen,")
     (fp_text reference REF** (at 0.09906 4.38912 180) (layer B.SilkS) hide
