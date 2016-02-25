@@ -21,20 +21,21 @@ at least be connected to INT0 as well.
 #include <avr/eeprom.h>
 
 #include <avr/pgmspace.h>   /* required by usbdrv.h */
+#include <string.h>
 #include "usbdrv.h"
 #include "oddebug.h"        /* This is also an example for using debug macros */
 
 #include "ledmatrix7219d88.h"
 
 uint8_t rows[8] = {
-	0b10000001,
-	0b01000010,
-	0b00100100,
-	0b00011000,
-	0b00011000,
-	0b00100100,
-	0b01000010,
-	0b10000001
+	0b00000001,
+	0b00000001,
+	0b00000001,
+	0b00000001,
+	0b00000001,
+	0b00000001,
+	0b00000001,
+	0b11111111
 };
 
 /* ------------------------------------------------------------------------- */
@@ -77,27 +78,54 @@ uchar   usbFunctionRead(uchar *data, uchar len)
     return len;
 }
 
+
 /* usbFunctionWrite() is called when the host sends a chunk of data to the
  * device. For more information see the documentation in usbdrv/usbdrv.h.
  */
 uchar   usbFunctionWrite(uchar *data, uchar len)
 {
-    uchar i;
+    uchar i, j;
+    uint8_t temp[8] = {0, 0, 0, 0, 0, 0, 0, 0};
 
     if(bytesRemaining == 0)
         return 1;               /* end of transfer */
     if(len > bytesRemaining)
         len = bytesRemaining;
 
-    for (i = 0; i < len; i++) {
-        rows[i] = data[i];
+    /* Rotate the bitfield 90 degrees clockwise */
+    for(i=0; i < len; i++){
+	for(j=0; j < len; j++){
+	    temp[i] = (  ( (data[j] & (1 << (7-i) ) ) >> (7-i) ) << j ) | temp[i];
+	}
     }
+
+    /* Get the rows straight. */
+    for (i = 0; i < len; i++) {
+	rows[i] = ( ((0x01 & temp[i]) << 3) |
+		    ((0x02 & temp[i]) << 1) |
+		    ((0x04 & temp[i]) << 2) |
+		    ((0x08 & temp[i]) << 2) |
+		    ((0x10 & temp[i]) >> 3) |
+		    ((0x20 & temp[i]) << 1));
+    }
+
+
+    /* Get the bit order straight. */
+    temp[0] = rows[0];
+    temp[1] = rows[7];
+    temp[2] = rows[3];
+    temp[3] = rows[4];
+    temp[4] = rows[1];
+    temp[5] = rows[6];
+    temp[6] = rows[2];
+    temp[7] = rows[5];
+
+
+    memcpy(rows, temp, sizeof(uint8_t) * 8);
 
     currentAddress += len;
     bytesRemaining -= len;
     return bytesRemaining == 0; /* return 1 if this was the last chunk */
-
-
 }
 
 /* ------------------------------------------------------------------------- */
@@ -131,9 +159,10 @@ int main(void)
     uchar   i;
 
     wdt_enable(WDTO_1S);
-    /* If you don't use the watchdog, replace the call above with a wdt_disable().
-     * On newer devices, the status of the watchdog (on/off, period) is PRESERVED
-     * OVER RESET!
+    /* If you don't use the watchdog, replace the call above with a
+     * wdt_disable().
+     * On newer devices, the status of the watchdog (on/off, period) is
+     * PRESERVED OVER RESET!
      */
     /* RESET status: all port bits are inputs without pull-up.
      * That's the way we need D+ and D-. Therefore we don't need any
