@@ -52,12 +52,13 @@ http://www.sparetimegizmos.com/Hardware/Panda.htm
 Pay careful attention to the fact that the chips are mounted on the rear 
 of the board and most of the passives are on the front.
 
-1.  Mount the parts that are opposite the chips.  Make sure the leads 
-    are trimmed so they won't interfere with the chip sockets.
-2.  Mount the chip sockets on the rear.
-3.  Mount the 10uF polarized capacitor and the two header strips on the rear.
-4.  Mount the remaining resistors and diodes.
-5.  Mount the LED bars and the discrete LEDs on the front.
+1.  Mount the passive components first.  Make sure the leads are trimmed 
+    so they won't interfere with the chip sockets.  The polarized 
+    capacitor should be laid down on its side.
+2.  Wash flux residue off the rear.  The chip sockets will make this 
+    more difficult later.
+3.  Mount the chip sockets and the header strips on the rear
+4.  Mount the LED bars and the discrete LEDs on the front.
 
 The discrete LEDs may be pressed up against the board unless you decide 
 to mount the LED bars in sockets.  If you want to do that, first mount 
