@@ -74,7 +74,8 @@ environment including compiler, binutilities, and libc
 (http://www.nongnu.org/avrdude/) installed.  Most if not all current 
 distributions of Linux and BSD include packages for installing these.  
 You will also need an AVR programming device supported by AVRDUDE.  A 
-USBtinyISP is commonly-available, reliable, and inexpensive.
+USBtinyISP (https://www.adafruit.com/products/46) is commonly-available, 
+reliable, and inexpensive.
 
 It's a good idea to add your programmer to your system's udev rules.  
 For the USBtinyISP, see https://learn.adafruit.com/usbtinyisp/avrdude
