@@ -98,4 +98,8 @@ ordinary USB cable, cut off the Type-B end, trim the jacket, and crimp
 the conductors to a 1x4 0.1" female header socket.
 
 Finally, to make any meaningful use of the Panda Display, you will need 
-a PDP-10 emulator which has been patched to make use of it.
+a PDP-10 emulator which has been patched to make use of it.  Since 
+Kenneth L. Harrenstien's klh10 pdp-10 emulator was patched by Mark 
+Crispin to use the original Panda Display, I chose to modify that to use 
+this new Panda Display.  Get it here: 
+https://github.com/DavidGriffith/klh10.
