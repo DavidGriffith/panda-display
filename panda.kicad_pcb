@@ -20,7 +20,7 @@
 
   (layers
     (0 F.Cu signal)
-    (31 B.Cu signal)
+    (31 B.Cu signal hide)
     (32 B.Adhes user)
     (33 F.Adhes user)
     (34 B.Paste user)
@@ -600,7 +600,7 @@
   )
 
   (module Symbols:OSHW-Logo_7.5x8mm_Copper (layer B.Cu) (tedit 0) (tstamp 5AFD83F9)
-    (at 181.61 99.06 180)
+    (at 194.945 111.125 180)
     (descr "Open Source Hardware Logo")
     (tags "Logo OSHW")
     (attr virtual)
@@ -2274,7 +2274,7 @@
   )
 
   (module Symbols:OSHW-Logo_7.5x8mm_Copper (layer F.Cu) (tedit 0) (tstamp 5AFD83B4)
-    (at 181.61 97.79)
+    (at 180.975 116.84)
     (descr "Open Source Hardware Logo")
     (tags "Logo OSHW")
     (attr virtual)
