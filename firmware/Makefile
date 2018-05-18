@@ -1,23 +1,19 @@
-# Name: Makefile
-# Project: hid-data example
-# Author: Christian Starkjohann
-# Creation Date: 2008-04-07
-# Tabsize: 4
-# Copyright: (c) 2008 by OBJECTIVE DEVELOPMENT Software GmbH
-# License: GNU GPL v2 (see License.txt), GNU GPL v3 or proprietary (CommercialLicense.txt)
+# Makefile cribbed heavily from
+# https://svn.my-webspace.at/ledtools/module/vusb/Makefile
 
-DEVICE  = atmega8
-F_CPU   = 16000000	# in Hz
-FUSE_L  = 0xFF
-FUSE_H  = 0xD9
-ISP	= usbtiny	# edit this line for your programmer
+ISP		= usbtiny	# edit this line for your programmer
+DEVICE		= atmega8	# edit this line for your microcontroller
+F_CPU		= 16000000UL	# in Hz
+FUSE_L		= 0xFF
+FUSE_H		= 0xD9
 
-AVRDUDE = avrdude -c $(ISP) -p $(DEVICE)
+PROJECT		= panda-display
+CFLAGS		= -Iusbdrv -Iledmatrix7219d88 -I. -DDEBUG_LEVEL=0
+OBJECTS		= usbdrv/usbdrv.o usbdrv/usbdrvasm.o ledmatrix7219d88/ledmatrix7219d88.o max7219/max7219.o $(PROJECT).o
 
-CFLAGS  = -Iusbdrv -Iledmatrix7219d88 -I. -DDEBUG_LEVEL=0
-OBJECTS = usbdrv/usbdrv.o usbdrv/usbdrvasm.o ledmatrix7219d88/ledmatrix7219d88.o max7219/max7219.o main.o
-
-COMPILE = avr-gcc -Wall -Os -DF_CPU=$(F_CPU) $(CFLAGS) -mmcu=$(DEVICE)
+COMPILE		= avr-gcc -Wall -Os -DF_CPU=$(F_CPU) $(CFLAGS) -mmcu=$(DEVICE)
+AVRDUDE		= avrdude -c $(ISP) -p $(DEVICE)
+CC		= gcc		# for compiling ptest.c
 
 ##############################################################################
 # Fuse values for particular devices
@@ -44,60 +40,6 @@ COMPILE = avr-gcc -Wall -Os -DF_CPU=$(F_CPU) $(CFLAGS) -mmcu=$(DEVICE)
 #        | +------------------ WDTON (WDT not always on)
 #        +-------------------- RSTDISBL (reset pin is enabled)
 #
-############################## ATMega48/88/168 ##############################
-# ATMega*8 FUSE_L (Fuse low byte):
-# 0xdf = 1 1 0 1   1 1 1 1
-#        ^ ^ \ /   \--+--/
-#        | |  |       +------- CKSEL 3..0 (external >8M crystal)
-#        | |  +--------------- SUT 1..0 (crystal osc, BOD enabled)
-#        | +------------------ CKOUT (if 0: Clock output enabled)
-#        +-------------------- CKDIV8 (if 0: divide by 8)
-# ATMega*8 FUSE_H (Fuse high byte):
-# 0xde = 1 1 0 1   1 1 1 0
-#        ^ ^ ^ ^   ^ \-+-/
-#        | | | |   |   +------ BODLEVEL 0..2 (110 = 1.8 V)
-#        | | | |   + --------- EESAVE (preserve EEPROM over chip erase)
-#        | | | +-------------- WDTON (if 0: watchdog always on)
-#        | | +---------------- SPIEN (allow serial programming)
-#        | +------------------ DWEN (debug wire enable)
-#        +-------------------- RSTDISBL (reset pin is enabled)
-#
-############################## ATTiny25/45/85 ###############################
-# ATMega*5 FUSE_L (Fuse low byte):
-# 0xef = 1 1 1 0   1 1 1 1
-#        ^ ^ \+/   \--+--/
-#        | |  |       +------- CKSEL 3..0 (clock selection -> crystal @ 12 MHz)
-#        | |  +--------------- SUT 1..0 (BOD enabled, fast rising power)
-#        | +------------------ CKOUT (clock output on CKOUT pin -> disabled)
-#        +-------------------- CKDIV8 (divide clock by 8 -> don't divide)
-# ATMega*5 FUSE_H (Fuse high byte):
-# 0xdd = 1 1 0 1   1 1 0 1
-#        ^ ^ ^ ^   ^ \-+-/
-#        | | | |   |   +------ BODLEVEL 2..0 (brownout trigger level -> 2.7V)
-#        | | | |   +---------- EESAVE (preserve EEPROM on Chip Erase -> not preserved)
-#        | | | +-------------- WDTON (watchdog timer always on -> disable)
-#        | | +---------------- SPIEN (enable serial programming -> enabled)
-#        | +------------------ DWEN (debug wire enable)
-#        +-------------------- RSTDISBL (disable external reset -> enabled)
-#
-################################ ATTiny2313 #################################
-# ATTiny2313 FUSE_L (Fuse low byte):
-# 0xef = 1 1 1 0   1 1 1 1
-#        ^ ^ \+/   \--+--/
-#        | |  |       +------- CKSEL 3..0 (clock selection -> crystal @ 12 MHz)
-#        | |  +--------------- SUT 1..0 (BOD enabled, fast rising power)
-#        | +------------------ CKOUT (clock output on CKOUT pin -> disabled)
-#        +-------------------- CKDIV8 (divide clock by 8 -> don't divide)
-# ATTiny2313 FUSE_H (Fuse high byte):
-# 0xdb = 1 1 0 1   1 0 1 1
-#        ^ ^ ^ ^   \-+-/ ^
-#        | | | |     |   +---- RSTDISBL (disable external reset -> enabled)
-#        | | | |     +-------- BODLEVEL 2..0 (brownout trigger level -> 2.7V)
-#        | | | +-------------- WDTON (watchdog timer always on -> disable)
-#        | | +---------------- SPIEN (enable serial programming -> enabled)
-#        | +------------------ EESAVE (preserve EEPROM on Chip Erase -> not preserved)
-#        +-------------------- DWEN (debug wire enable)
-
 
 # symbolic targets:
 help:
@@ -110,9 +52,9 @@ help:
 
 
 ptest:	ptest.c
-	gcc -o ptest ptest.c -lusb-1.0 -Wall -g
+	$(CC) -o ptest ptest.c -lusb-1.0 -Wall -g
 
-hex: main.hex
+hex: $(PROJECT).hex
 
 program: flash fuse
 
@@ -123,12 +65,15 @@ fuse:
 	$(AVRDUDE) -U hfuse:w:$(FUSE_H):m -U lfuse:w:$(FUSE_L):m
 
 # rule for uploading firmware:
-flash: main.hex
-	$(AVRDUDE) -U flash:w:main.hex:i
+flash: $(PROJECT).hex
+	$(AVRDUDE) -U flash:w:$(PROJECT).hex:i
 
 # rule for deleting dependent files (those which can be built by Make):
 clean:
-	rm -f main.hex main.lst main.obj main.cof main.list main.map main.eep.hex main.elf *.o usbdrv/*.o main.s usbdrv/oddebug.s usbdrv/usbdrv.s
+	rm -f $(PROJECT).hex $(PROJECT).lst $(PROJEC).obj $(PROJECT).cof \
+		$(PROJECT).list $(PROJECT).map $(PROJECT).eep.hex \
+		$(PROJECT).elf *.o usbdrv/*.o main.s usbdrv/oddebug.s \
+		usbdrv/usbdrv.s
 	rm -f max7219/*lst max7219/*o
 	rm -f ledmatrix7219d88/*lst ledmatrix7219d88/*o
 	rm -f ptest
@@ -155,18 +100,18 @@ clean:
 usbdrv:
 	cp -r ../../../usbdrv .
 
-main.elf: usbdrv $(OBJECTS)	# usbdrv dependency only needed because we copy it
-	$(COMPILE) -o main.elf $(OBJECTS)
+$(PROJECT).elf: usbdrv $(OBJECTS)	# usbdrv dependency only needed because we copy it
+	$(COMPILE) -o $(PROJECT).elf $(OBJECTS)
 
-main.hex: main.elf
-	rm -f main.hex main.eep.hex
-	avr-objcopy -j .text -j .data -O ihex main.elf main.hex
-	avr-size main.hex
+$(PROJECT).hex: $(PROJECT).elf
+	rm -f $(PROJECT).hex $(PROJECT).eep.hex
+	avr-objcopy -j .text -j .data -O ihex $(PROJECT).elf $(PROJECT).hex
+	avr-size $(PROJECT).hex
 
 # debugging targets:
 
-disasm:	main.elf
-	avr-objdump -d main.elf
+disasm:	$(PROJECT).elf
+	avr-objdump -d $(PROJECT).elf
 
 cpp:
-	$(COMPILE) -E main.c
+	$(COMPILE) -E $(PROJECT).c
